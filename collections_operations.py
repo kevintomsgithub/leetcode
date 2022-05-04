@@ -24,3 +24,7 @@ print(dd)
 print('\nCounter')
 print(c.most_common)
 
+for i in s:
+    dd[i] += 1
+
+print(dd)

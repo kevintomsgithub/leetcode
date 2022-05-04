@@ -5,12 +5,16 @@ def quicksort(a):
     pivot=a[middle_pos]
 
     for x in a:
-        if x < pivot: smaller.append(x)
-        elif x == pivot: equal.append(x)
-        else: larger.append(x)
+        if x < pivot: 
+            smaller.append(x)
+        elif x == pivot: 
+            equal.append(x)
+        else: 
+            larger.append(x)
 
     return quicksort(smaller)+equal+quicksort(larger)
 
-array = [4,7,8,6,4,3,5,7]
+# array = [4,7,8,6,4,3,5,7]
+array = [5,1,4,2]
 x = quicksort(array)
 print(x)

@@ -19,6 +19,7 @@ def lexicographical(a):
     r = lexicographical(a[mid:])
     return merge(l, r)
 
-array = ['azin', 'akin', 'abin', 'aain']
+# array = ['azin', 'akin', 'abin', 'aain']
+array = ['azin', 'akin', 'abin', 'aain', '12asda', '54wew', '50as']
 # array = [8, 9, 1, 4, 2, 3]
 print(lexicographical(array))
