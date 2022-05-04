@@ -1,3 +1,26 @@
+'''
+  input:  str1 = "dog", str2 = "frog"
+
+  output: 3
+
+  input:  str1 = "some", str2 = "thing"
+
+  output: 9
+    '' h o t
+  '' 0 1 2 3
+  n  1 1 2 3
+  o  2 2 1 2
+  t  3 2 2 1
+  
+  str1[i-1] == str2[j-1]:
+    dp[i][j] = dp[i - 1][j - 1]
+  str1[i-1] != str2[j-1]:
+    1 + min()
+  
+
+  DD("", "dog")
+  '''
+
 def minDistance(word1, word2):
     rows = len(word1) + 1
     cols = len(word2) + 1
@@ -18,4 +41,5 @@ def minDistance(word1, word2):
             )
     return dist_map[rows-1][cols-1]
 
-print(minDistance('as', ''))
+# print(minDistance('as', ''))
+print(minDistance('heat', 'hit'))
