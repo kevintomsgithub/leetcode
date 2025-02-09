@@ -13,6 +13,7 @@ class Graph:
     def dijkstra(self, src):
         dist = {}
         min_heap = [(0, src)]
+        previous_node = {i: None for i in range(self.V)}
         while min_heap:
             w1, n1 = heapq.heappop(min_heap)
             if n1 in dist:
@@ -21,7 +22,15 @@ class Graph:
             for n2, w2 in self.adj_list[n1]:
                 if n2 not in dist:
                     heapq.heappush(min_heap, [w1 + w2, n2])
-        return dist
+                    previous_node[n2] = n1
+        return dist, previous_node
+
+    def get_shortest_path(self, previous_node, target):
+        path = []
+        while target:
+            path.insert(0, target)
+            target = previous_node[target]
+        return path
 
 
 g = Graph(5)
@@ -33,5 +42,7 @@ g.add_edge(2, 3, 8)
 g.add_edge(2, 4, 2)
 g.add_edge(3, 4, 5)
 
-dist = g.dijkstra(0)
+dist, previous_node = g.dijkstra(0)
 print(f"distance: {dist}")
+path = g.get_shortest_path(previous_node, 3)
+print(f"path: {path}")
